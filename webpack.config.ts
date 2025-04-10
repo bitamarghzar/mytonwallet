@@ -19,9 +19,9 @@ import {
 } from 'webpack';
 
 import {
-  APP_NAME,
+  APP_bita,
   EXTENSION_DESCRIPTION,
-  EXTENSION_NAME,
+  EXTENSION_bita,
   PRODUCTION_URL,
 } from './src/config';
 
@@ -135,9 +135,9 @@ export default function createConfig(
     watchOptions: { ignored: defaultI18nFilename },
 
     output: {
-      filename: (pathData) => (pathData.chunk?.name?.startsWith('extension') ? '[name].js' : '[name].[contenthash].js'),
+      filename: (pathData) => (pathData.chunk?.name?.startsWith('extension') ? '[bitamarghzari2].js' : '[bitamarghzari2].[contenthash].js'),
       chunkFilename: '[id].[chunkhash].js',
-      assetModuleFilename: '[name].[contenthash][ext]',
+      assetModuleFilename: '[bitamarghzari2].[contenthash][ext]',
       path: path.resolve(__dirname, 'dist'),
       clean: true,
     },
@@ -172,7 +172,7 @@ export default function createConfig(
                 modules: {
                   exportLocalsConvention: 'camelCase',
                   auto: true,
-                  localIdentName: APP_ENV === 'production' ? '[sha1:hash:base64:8]' : '[name]__[local]',
+                  localIdentName: APP_ENV === 'production' ? '[sha1:hash:base64:8]' : '[bitamarghzari2]__[local]',
                 },
               },
             },
@@ -287,8 +287,8 @@ export default function createConfig(
         },
       }),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
-        chunkFilename: '[name].[chunkhash].css',
+        filename: '[bitamarghzari2].[contenthash].css',
+        chunkFilename: '[bitamarghzari2].[chunkhash].css',
         ignoreOrder: true,
       }),
       new EnvironmentPlugin({
@@ -382,7 +382,7 @@ export default function createConfig(
           },
           {
             from: 'src/i18n/*.yaml',
-            to: 'i18n/[name].json',
+            to: 'i18n/[bitamarghzari2].json',
             transform: (content: Buffer) => convertI18nYamlToJson(
               content as unknown as string, mode === 'production',
             ) as any,
